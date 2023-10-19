@@ -1,0 +1,104 @@
+//@import "mediaQuery";
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(15, 45, 45);
+}
+
+.calculator{
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    border: 2px solid;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    background-color: rgb(86, 122, 122);
+    height: 400px;
+    padding-top: 30px;
+    flex-direction: column; /* Yönü sütun olarak ayarla */
+    gap:20px;
+
+    position: absolute;//Her zaman relative göre pozisyon alır. body default relative dir. o yüzden büyük ekrana göre pozisyon aldı.
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    .input{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .input-text{
+            width: 380px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+        background-color: gainsboro;
+
+          }
+    }
+    .buttons{
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 sütun oluşturur */
+        gap: 10px; /* Butonlar arasına boşluk ekler */
+        padding-left: 10px;
+        //flex-wrap: wrap;
+        .operator{
+          background-color: orange;
+        }
+        .operatorAC{
+          //flex: 0 0 calc(50% - 5px); 
+          flex-grow: 3; //Boş alanı kapla
+          background-color: red;
+        }
+    }
+
+}
+button{
+    //flex-grow: 1; /* Butonların eşit büyüklükte yayılmasını sağlar */
+    border-radius: 5px;
+    height: 50px;
+    width: 80px;
+    border: 2px solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    background-color: gainsboro;
+
+    
+}
+  // Ekran boyutlarına göre stil ayarları
+  @media screen and (max-width: 600px) {
+    .calculator {
+      height: auto;
+      padding-top: 10px;
+    }
+
+    .buttons {
+      width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    button {
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .buttons {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .buttons {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
